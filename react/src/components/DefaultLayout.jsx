@@ -20,6 +20,7 @@ export default function DefaultLayout() {
             setUser(data.data);
         });
     }, []);
+
     return (
         <div id="defaultLayout">
             <aside>
