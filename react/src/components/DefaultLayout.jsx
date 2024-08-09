@@ -4,7 +4,7 @@ import { Link, Navigate, Outlet } from "react-router-dom";
 import axiosClient from "../axios-client";
 
 export default function DefaultLayout() {
-    const { user, token, setUser } = useStateContext();
+    const { user, token, setUser, notification } = useStateContext();
     if (!token) return <Navigate to="/login" />;
     const onLogout = (ev) => {
         ev.preventDefault();
@@ -41,6 +41,7 @@ export default function DefaultLayout() {
                     <Outlet />
                 </main>
             </div>
+            {notification && <div className="notification">{notification}</div>}
         </div>
     );
 }
