@@ -1,9 +1,10 @@
 import { useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useStateContext } from "../contexts/ContextProvider";
 import axiosClient from "../axios-client";
 
 export default function Signup() {
+    const navigate = useNavigate();
     const nameRef = useRef();
     const emailRef = useRef();
     const passwordRef = useRef();
@@ -21,8 +22,10 @@ export default function Signup() {
         axiosClient
             .post("/signup", payload)
             .then(({ data }) => {
-                setUser(data.user);
-                setToken(data.token);
+                navigate("/");
+                alert("signup successfully");
+                // setUser(data.user);
+                // setToken(data.token);
             })
             .catch((err) => {
                 const response = err.response;

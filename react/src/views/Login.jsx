@@ -23,7 +23,7 @@ export default function Login() {
                 setToken(data.token);
             })
             .catch((err) => {
-                debugger;
+                //debugger;
                 const response = err.response;
                 if (response && response.status === 422) {
                     if (response.data.errors) {

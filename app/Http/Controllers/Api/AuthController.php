@@ -21,9 +21,10 @@ class AuthController extends Controller
             'password' => bcrypt($data['password']),
 
         ]);
-        $token = $user->createToken('main')->plainTextToken;
+        // $token = $user->createToken('main')->plainTextToken;
 
-        return response(compact('user', 'token'));
+        return response(compact('user'));
+        // return response(compact('user', 'token'));
     }
 
     public function login(LoginRequest $request){
